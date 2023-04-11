@@ -31,10 +31,10 @@ public class servidor {
                     System.out.println("Número recebido do cliente: " + mensagemDoCliente);
 
                     // Verifica se o número tem mais de 10 casas
-                    if (mensagemDoCliente.length() > 10) {
+                    if (mensagemDoCliente.length() > 8) {
                         // Gera uma string do mesmo tamanho do número e envia para o cliente
-                        String resposta = gerarString(mensagemDoCliente.length());
-                        bufferedWriter.write(resposta);
+                        String respostaString = gerarString(mensagemDoCliente.length());
+                        bufferedWriter.write(respostaString);
                         bufferedWriter.newLine();
                         bufferedWriter.flush();
                     } else {

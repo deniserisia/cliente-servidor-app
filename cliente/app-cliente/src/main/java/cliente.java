@@ -48,6 +48,7 @@ public class cliente {
                 } else { // Se o número tiver 10 dígitos ou menos, verifica se é par ou ímpar
 
                     String resposta = (numero % 2 == 0) ? "par" : "ímpar";
+                    System.out.println("2 Opções - Retorna um conjunto de strings ou retorna par ou impar:");
                     System.out.println("Cliente: " + numero);
 
                     bufferedWriter.write(Long.toString(numero));

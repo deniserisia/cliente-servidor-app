@@ -31,6 +31,22 @@ public class servidor {
                     System.out.println("Número recebido do cliente: " + mensagemDoCliente);
 
                     // Verifica se o número tem mais de 10 casas
+                    if (mensagemDoCliente.length() > 10) {
+                        // Gera uma string do mesmo tamanho do número e envia para o cliente
+                        String respostaString = gerarString(mensagemDoCliente.length());
+                        bufferedWriter.write(respostaString);
+                        bufferedWriter.newLine();
+                        bufferedWriter.flush();
+                    } else {
+                        // Converte o número para inteiro e verifica se é par ou ímpar
+                        int numero = Integer.parseInt(mensagemDoCliente);
+                        String resposta = (numero % 2 == 0) ? "par" : "impar";
+                        bufferedWriter.write(resposta);
+                        bufferedWriter.newLine();
+                        bufferedWriter.flush();
+                    }
+
+                    // Verifica se o número tem mais de 10 casas
                     if (mensagemDoCliente.length() > 8) {
                         // Gera uma string do mesmo tamanho do número e envia para o cliente
                         String respostaString = gerarString(mensagemDoCliente.length());

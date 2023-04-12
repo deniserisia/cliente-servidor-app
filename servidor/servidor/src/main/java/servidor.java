@@ -9,8 +9,8 @@ public class servidor {
 
     public static void main(String[] args) throws IOException {
 
-        ServerSocket serverSocket = new ServerSocket(1235);
-        System.out.println("Servidor iniciado na porta 1235...");
+        ServerSocket serverSocket = new ServerSocket(4815);
+        System.out.println("Servidor iniciado na porta 4815...");
 
         // Cria um ScheduledExecutorService com uma thread que executa o código do servidor a cada 10 segundos
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
@@ -31,7 +31,7 @@ public class servidor {
                     System.out.println("Número recebido do cliente: " + mensagemDoCliente);
 
                     // Verifica se o número tem mais de 10 casas
-                    if (mensagemDoCliente.length() >= 10) {
+                    if (mensagemDoCliente.length() > 10) {
                         // Gera uma string do mesmo tamanho do número e envia para o cliente
                         int numero = Integer.parseInt(mensagemDoCliente);
                         String respostaString = gerarString(mensagemDoCliente.length());
@@ -49,10 +49,6 @@ public class servidor {
                         System.out.println("Número recebido do cliente: " + numero);
                     }
 
-                    if (mensagemDoCliente.equalsIgnoreCase("Adeus")) {
-                        System.out.println("Cliente encerrou a conexão.");
-                        break;
-                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();

@@ -15,7 +15,7 @@ public class cliente {
         BufferedWriter bufferedWriter = null;
 
         try {
-            socket = new Socket("localhost", 1235);
+            socket = new Socket("localhost", 4815);
 
             inputStreamReader = new InputStreamReader(socket.getInputStream());
             outputStreamWriter = new OutputStreamWriter(socket.getOutputStream());
@@ -27,11 +27,11 @@ public class cliente {
 
             while (true) {
                 //int numero = random.nextInt((int) Math.pow(1000, 30)); // Gera um número inteiro com até 30 casas
-                //int numero = random.nextInt((int) Math.pow(10, 15)); --esse aqui
+                int numero = random.nextInt((int) Math.pow(10, 15));
                 //int numero = random.nextInt((int) ((int) (Math.pow(10, 12) - 1 - Math.pow(10, 11)) + Math.pow(10, 11)));
-                long numero = (long) (random.nextDouble() * Math.pow(10, 15));
+                //long numero = (long) (random.nextDouble() * Math.pow(10, 15));
 
-                // NAÕ ESTA ENTRANDO AQUI
+                //  Se o número for maior que 999.999.999 (que tem 10 dígitos), a condição é verdadeira e o código dentro do bloco de chaves {} será executado.
                 if (numero > 999999999L) { // Se o número tiver mais de 10 dígitos, gera uma string de mesmo tamanho
                     String respostaString = "";
                     for (int i = 0; i < Long.toString(numero).length(); i++) {
@@ -45,10 +45,6 @@ public class cliente {
                     String servidorResposta = bufferedReader.readLine();
                     System.out.println("Servidor: " + respostaString + " | " + "Numero recebido pelo cliente: " + numero);
                     System.out.println("FIM");
-
-                    if (servidorResposta.equalsIgnoreCase("Adeus!")) {
-                        break;
-                    }
 
                 } else { // Se o número tiver 10 dígitos ou menos, verifica se é par ou ímpar
 
@@ -65,9 +61,7 @@ public class cliente {
                     System.out.println("Servidor: " + servidorResposta + " | " + "Numero recebido pelo cliente: " + numero);
                     System.out.println("FIM");
                     System.out.println("---------------------------------------------------------------------");
-                    if (servidorResposta.equalsIgnoreCase("Adeus!")) {
-                        break;
-                    }
+
                 }
 
                 Thread.sleep(INTERVALO); // Aguarda 10 segundos antes de enviar o próximo número

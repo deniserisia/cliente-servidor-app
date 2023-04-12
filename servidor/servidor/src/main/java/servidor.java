@@ -15,9 +15,9 @@ public class servidor {
         // Cria um ScheduledExecutorService com uma thread que executa o código do servidor a cada 10 segundos
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
         executorService.scheduleAtFixedRate(() -> {
-            try (Socket socket = serverSocket.accept()) {
-                System.out.println("Conexão estabelecida com o cliente " + socket.getInetAddress());
 
+            try (Socket socket = serverSocket.accept()) {
+                System.out.println("Conexão estabelecida com o cliente " + socket.getInetAddress()); // Aparece no console
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
@@ -31,12 +31,14 @@ public class servidor {
                     System.out.println("Número recebido do cliente: " + mensagemDoCliente);
 
                     // Verifica se o número tem mais de 10 casas
-                    if (mensagemDoCliente.length() > 10) {
+                    if (mensagemDoCliente.length() >= 10) {
                         // Gera uma string do mesmo tamanho do número e envia para o cliente
+                        int numero = Integer.parseInt(mensagemDoCliente);
                         String respostaString = gerarString(mensagemDoCliente.length());
                         bufferedWriter.write(respostaString);
                         bufferedWriter.newLine();
                         bufferedWriter.flush();
+                        System.out.println("Número recebido do cliente: " + numero);
                     } else {
                         // Converte o número para inteiro e verifica se é par ou ímpar
                         int numero = Integer.parseInt(mensagemDoCliente);
@@ -44,22 +46,7 @@ public class servidor {
                         bufferedWriter.write(resposta);
                         bufferedWriter.newLine();
                         bufferedWriter.flush();
-                    }
-
-                    // Verifica se o número tem mais de 10 casas
-                    if (mensagemDoCliente.length() > 8) {
-                        // Gera uma string do mesmo tamanho do número e envia para o cliente
-                        String respostaString = gerarString(mensagemDoCliente.length());
-                        bufferedWriter.write(respostaString);
-                        bufferedWriter.newLine();
-                        bufferedWriter.flush();
-                    } else {
-                        // Converte o número para inteiro e verifica se é par ou ímpar
-                        int numero = Integer.parseInt(mensagemDoCliente);
-                        String resposta = (numero % 2 == 0) ? "par" : "impar";
-                        bufferedWriter.write(resposta);
-                        bufferedWriter.newLine();
-                        bufferedWriter.flush();
+                        System.out.println("Número recebido do cliente: " + numero);
                     }
 
                     if (mensagemDoCliente.equalsIgnoreCase("Adeus")) {

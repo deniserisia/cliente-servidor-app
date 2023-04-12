@@ -26,19 +26,24 @@ public class cliente {
             Random random = new Random();
 
             while (true) {
-                int numero = random.nextInt((int) Math.pow(1000, 30)); // Gera um número inteiro com até 30 casas
+                //int numero = random.nextInt((int) Math.pow(1000, 30)); // Gera um número inteiro com até 30 casas
+                //int numero = random.nextInt((int) Math.pow(10, 15)); --esse aqui
+                //int numero = random.nextInt((int) ((int) (Math.pow(10, 12) - 1 - Math.pow(10, 11)) + Math.pow(10, 11)));
+                long numero = (long) (random.nextDouble() * Math.pow(10, 15));
 
-                if (numero > 1000000000000000000L) { // Se o número tiver mais de 10 dígitos, gera uma string de mesmo tamanho
+                // NAÕ ESTA ENTRANDO AQUI
+                if (numero > 999999999L) { // Se o número tiver mais de 10 dígitos, gera uma string de mesmo tamanho
                     String respostaString = "";
                     for (int i = 0; i < Long.toString(numero).length(); i++) {
                         respostaString += "a"; // Pode ser qualquer caracter
                     }
-                    System.out.println("Cliente: " + numero + " - Resposta: " + respostaString);
+                    System.out.println("1º Opção");
+                    System.out.println("Cliente: " + numero);
                     bufferedWriter.write(Long.toString(numero));
                     bufferedWriter.newLine();
                     bufferedWriter.flush();
                     String servidorResposta = bufferedReader.readLine();
-                    System.out.println("Servidor: " + servidorResposta + " | " + "Numero recebido pelo cliente: " + numero);
+                    System.out.println("Servidor: " + respostaString + " | " + "Numero recebido pelo cliente: " + numero);
                     System.out.println("FIM");
 
                     if (servidorResposta.equalsIgnoreCase("Adeus!")) {
@@ -48,7 +53,7 @@ public class cliente {
                 } else { // Se o número tiver 10 dígitos ou menos, verifica se é par ou ímpar
 
                     String resposta = (numero % 2 == 0) ? "par" : "ímpar";
-                    System.out.println("2 Opções - Retorna um conjunto de strings ou retorna par ou impar:");
+                    System.out.println("2º Opção:");
                     System.out.println("Cliente: " + numero);
 
                     bufferedWriter.write(Long.toString(numero));

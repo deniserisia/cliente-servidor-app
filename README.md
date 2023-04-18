@@ -7,16 +7,38 @@
 ## Alguns campos que este projeto utiliza:
 
 + Descrição/Titulo
-+ Função
-+ Botão
-+ Area de Texto
-+ Confirmação de Sucesso
-+ Retorno de Erro
++ Validação
++ Endereço de Host
++ Gerador de Numero Inteiro
++ Condição
++ Retorno Fim
 
 ## Outros campos obrigatorios:
 
-+ Primeiro Nome 
-+ Segundo Nome 
-+ Email
-+ Numero de Telefone
++ Gerador 30 Digitos
++ Gerador String
++ Validação Par e Impar
 
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## Ação do Sistema: 
+
+**1ª Opção**
+<br />Cliente: 14510936338
+<br />Servidor: aaaaaaaaaa | Numero recebido pelo cliente: 14510936338
+FIM
+
+**2ª Opção**
+<br />Cliente: 488094175
+<br />Servidor: Impar | Numero recebido pelo cliente: 488094175
+
+**3ª Opção**
+<br />Cliente: 1211625196
+<br />Servidor: aaaaaaaaaa | Numero recebido pelo cliente: 1211625196
+
+**4ª Opção**
+<br />Cliente: 652729982
+<br />Servidor: par | Numero recebido pelo cliente: 652729982

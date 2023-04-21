@@ -53,14 +53,14 @@ Programa Servidor
 ## Ação do Sistema: 
 
 **1ª Opção**
-<br />Cliente: 1773760102
-<br />Servidor: aaaaaaaaaa | Numero recebido pelo cliente: 1773760102
-FIM
+<br /> Cliente: 1773760102
+ <br /> Servidor: aaaaaaaaaa | Numero recebido pelo cliente: 1773760102
+  <br /> FIM
 
 **2ª Opção**
-<br />Cliente: 326615153
-<br />Servidor: Impar | Numero recebido pelo cliente: 488094175
-FIM
+<br /> Cliente: 326615153
+ <br /> Servidor: Impar | Numero recebido pelo cliente: 488094175
+  <br /> FIM
 
 ## Outras Funções Aplicadas
 

@@ -6,7 +6,23 @@
 
 ## Exemplificação 📷
 
-![image](https://user-images.githubusercontent.com/98546863/233643091-dcc2856f-e7b5-43a3-b5c1-0f7702cc94e9.png)
+![image](https://user-images.githubusercontent.com/98546863/233650501-9fcd0e96-51af-4870-afff-3d2b295864f5.png)
+
+## Descrição 🖉
+
+**Programa Cliente**
+1. O programa cliente irá se conectar ao servidor;
+2. Gerar um número inteiro com até 30 casas;
+3. Enviar esse número para o servidor;
+4. Deve receber, imprimir no console e devolver o valor recebido do servido + “FIM”
+5. Fecha a conexão.
+Obs.: Repete a cada 10 segundo.
+
+Programa Servidor
+1. O programa servidor irá esperar a conexão de clientes;
+2. Recebe o número;
+3. Se o número tiver mais de 10 casas, gera e envia uma string do mesmo tamanho para o cliente;
+4. Se for menor que 10, verifica se é par ou ímpar e envia “PAR” ou “ÍMPAR” para o cliente.
 
 ## Alguns campos que este projeto utiliza:
 
@@ -22,6 +38,16 @@
 + Gerador 30 Digitos
 + Gerador String
 + Validação Par e Impar
+
+## Linguagem Utilizada
+<table> 
+ <tr>
+  <td>Java</td>
+ </tr>
+ <tr>
+  <td>1.8</td>
+ </tr>
+</table>
 
 
 ## Ação do Sistema: 

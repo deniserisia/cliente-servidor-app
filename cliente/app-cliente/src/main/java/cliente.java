@@ -1,12 +1,16 @@
 import java.io.*;
 import java.net.Socket;
 import java.util.Random;
+import java.util.Scanner;
 
 public class cliente {
 
     private static final int INTERVALO = 10000; // 10 segundos
 
     public static void main(String[] args) throws InterruptedException {
+
+        Scanner scanner = new Scanner(System.in);
+        //System.out.print("Digite um número: ");
 
         Socket socket = null;
         InputStreamReader inputStreamReader = null;
@@ -29,14 +33,18 @@ public class cliente {
 
                 int moeda = random.nextInt(2);
                 long numero;
+                //long numero = scanner.nextInt();
+                //System.out.println("O número digitado foi: " + numero);
 
-
+                //Cenario ficticio onde tem um ou outro
                 if(moeda == 0)
                 {
+                    System.out.println("1º Opção:");
                     numero = random.nextInt((int) Math.pow(10, 10));
                 }
                 else
-                { //Cenario ficticio
+                {
+                    System.out.println("2º Opção:");
                     numero = (long) (random.nextDouble() * Math.pow(10, 30));
                 }
 
@@ -49,6 +57,7 @@ public class cliente {
                String respostaServidor = bufferedReader.readLine();
                System.out.println("Servidor: " + respostaServidor + " | " + "Numero recebido pelo cliente: " + numero);
                System.out.println("FIM");
+                System.out.println("-------------------------------------------------------------------------------");
 
                 Thread.sleep(INTERVALO); // Aguarda 10 segundos antes de enviar o próximo número
             }

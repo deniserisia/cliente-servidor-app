@@ -26,43 +26,29 @@ public class cliente {
             Random random = new Random();
 
             while (true) {
-                //int numero = random.nextInt((int) Math.pow(1000, 30)); // Gera um número inteiro com até 30 casas
-                int numero = random.nextInt((int) Math.pow(10, 15));
-                //int numero = random.nextInt((int) ((int) (Math.pow(10, 12) - 1 - Math.pow(10, 11)) + Math.pow(10, 11)));
-                //long numero = (long) (random.nextDouble() * Math.pow(10, 15));
 
-                //  Se o número for maior que 999.999.999 (que tem 10 dígitos), a condição é verdadeira e o código dentro do bloco de chaves {} será executado.
-                if (numero > 999999999L) { // Se o número tiver mais de 10 dígitos, gera uma string de mesmo tamanho
-                    String respostaString = "";
-                    for (int i = 0; i < Long.toString(numero).length(); i++) {
-                        respostaString += "a"; // Pode ser qualquer caracter
-                    }
-                    System.out.println("1º Opção");
-                    System.out.println("Cliente: " + numero);
-                    bufferedWriter.write(Long.toString(numero));
-                    bufferedWriter.newLine();
-                    bufferedWriter.flush();
-                    String servidorResposta = bufferedReader.readLine();
-                    System.out.println("Servidor: " + respostaString + " | " + "Numero recebido pelo cliente: " + numero);
-                    System.out.println("FIM");
+                int moeda = random.nextInt(2);
+                long numero;
 
-                } else { // Se o número tiver 10 dígitos ou menos, verifica se é par ou ímpar
 
-                    String resposta = (numero % 2 == 0) ? "par" : "ímpar";
-                    System.out.println("2º Opção:");
-                    System.out.println("Cliente: " + numero);
-
-                    bufferedWriter.write(Long.toString(numero));
-                    bufferedWriter.newLine();
-                    bufferedWriter.flush();
-
-                    String servidorResposta = bufferedReader.readLine();
-
-                    System.out.println("Servidor: " + servidorResposta + " | " + "Numero recebido pelo cliente: " + numero);
-                    System.out.println("FIM");
-                    System.out.println("---------------------------------------------------------------------");
-
+                if(moeda == 0)
+                {
+                    numero = random.nextInt((int) Math.pow(10, 10));
                 }
+                else
+                { //Cenario ficticio
+                    numero = (long) (random.nextDouble() * Math.pow(10, 30));
+                }
+
+               //Envio do numero ao servidor
+               bufferedWriter.write(Long.toString(numero));
+               bufferedWriter.newLine();
+               bufferedWriter.flush();
+
+               //Resposta do Servidor
+               String respostaServidor = bufferedReader.readLine();
+               System.out.println("Servidor: " + respostaServidor + " | " + "Numero recebido pelo cliente: " + numero);
+               System.out.println("FIM");
 
                 Thread.sleep(INTERVALO); // Aguarda 10 segundos antes de enviar o próximo número
             }

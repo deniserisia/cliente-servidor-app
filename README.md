@@ -110,6 +110,7 @@ Programa Servidor
 * Iniciando Socket
 > Iniciando a porta informada no Cliente.
 <br /> **Corte do codigo:** ServerSocket serverSocket = new ServerSocket(4815);
+<br /> **Retorno para o cliente:** System.out.println("Conexão estabelecida com o cliente " + socket.getInetAddress());
 
 * Executor Service 
 > Cria um ScheduledExecutorService com uma thread que executa o código do servidor a cada 10 segundos.
